@@ -4,13 +4,18 @@ import { View, ScreenSpinner, AdaptivityProvider, AppRoot } from '@vkontakte/vku
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
-import Persik from './panels/Persik';
+import Menu from './panels/Menu';
+
+const ROUTES = {
+	HOME: 'home',
+	MENU: 'menu'
+}
 
 const App = () => {
 	// const [activePanel, setActivePanel] = useState('home');
 	// const [fetchedUser, setUser] = useState(null);
 	// const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-	const [activePanel, setActivePanel] = useState('home');
+	const [activePanel, setActivePanel] = useState(ROUTES.MENU);
  	const [fetchedUser, setUser] = useState(null);
  	const [popout, setPopout] = useState(null);
 
@@ -31,15 +36,15 @@ const App = () => {
 	}, []);
 
 	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
+		setActivePanel(<Menu></Menu>);
 	};
 
 	return (
 		<AdaptivityProvider>
 			<AppRoot>
 				<View activePanel={activePanel} popout={popout}>
-					<Home id='home' fetchedUser={fetchedUser} go={go} />
-					<Persik id='persik' go={go} />
+					<Home id={ROUTES.HOME} fetchedUser={fetchedUser} go={go} />
+					<Menu id={ROUTES.MENU}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
