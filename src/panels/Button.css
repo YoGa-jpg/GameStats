@@ -1,0 +1,12 @@
+.myButton{
+    background:url(https://avatarko.ru/img/kartinka/25/igra_Dota_2_24253.jpg) no-repeat;
+    cursor:pointer;
+    border:none;
+    width:100px;
+    height:100px;
+}
+
+.myButton:active  /* use Dot here */
+{   
+    background:url(https://avatarko.ru/img/kartinka/25/igra_Dota_2_24253.jpg) no-repeat;
+}
