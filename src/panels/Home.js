@@ -18,7 +18,7 @@ const Home = ({ id, go, fetchedUser }) => (
 
 		<Group header={<Header mode="secondary">Navigation Example</Header>}>
 			<Div>
-				<Button stretched size="l" mode="secondary" onClick={go} data-to="persik">
+				<Button stretched size="l" mode="secondary" onClick={go} data-to="menu">
 					Show me the Persik, please
 				</Button>
 			</Div>
