@@ -5,19 +5,23 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
 import Menu from './panels/Menu';
+import Dota from './panels/Dota';
+import Csgo from './panels/Csgo';
 
 const ROUTES = {
 	HOME: 'home',
-	MENU: 'menu'
+	MENU: 'menu',
+	DOTA: 'dota',
+	CSGO: 'csgo'
 }
 
 const App = () => {
-	// const [activePanel, setActivePanel] = useState('home');
-	// const [fetchedUser, setUser] = useState(null);
-	// const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [activePanel, setActivePanel] = useState(ROUTES.MENU);
- 	const [fetchedUser, setUser] = useState(null);
- 	const [popout, setPopout] = useState(null);
+	const [fetchedUser, setUser] = useState(null);
+	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	// const [activePanel, setActivePanel] = useState(ROUTES.MENU);
+ 	// const [fetchedUser, setUser] = useState(null);
+ 	// const [popout, setPopout] = useState(null);
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -36,15 +40,17 @@ const App = () => {
 	}, []);
 
 	const go = e => {
-		setActivePanel(<Menu></Menu>);
+		setActivePanel(e.currentTarget.dataset.to);
 	};
 
 	return (
 		<AdaptivityProvider>
 			<AppRoot>
 				<View activePanel={activePanel} popout={popout}>
-					<Home id={ROUTES.HOME} fetchedUser={fetchedUser} go={go} />
-					<Menu id={ROUTES.MENU}/>
+					{/* <Home id={ROUTES.HOME} fetchedUser={fetchedUser} go={go} /> */}
+					<Menu id={ROUTES.MENU} go={go}/>
+					<Dota id={ROUTES.DOTA} go={go}/>
+					<Csgo id={ROUTES.CSGO} go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
