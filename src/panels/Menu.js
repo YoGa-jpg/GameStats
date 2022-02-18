@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { Panel, PanelHeader, Text, Group, Div, Cell, Header, CardScroll, Card, List } from '@vkontakte/vkui';
 import { Icon24DataSaverCircleFillGreen } from '@vkontakte/icons';
 
-import persik from '../img/persik.png';
-
 import dota from '../img/dota.png';
 import poe from '../img/poe.png'
 import cs from '../img/cs.png';
@@ -13,10 +11,10 @@ import cs from '../img/cs.png';
 import dota_icon from '../img/dota-icon.jpg';
 import cs_icon from '../img/cs-icon.jpeg'
 
-import './Persik.css';
+import '../styles/Menu.css';
 
-const Menu = props => (
-	<Panel id={props.id}>
+const Menu = ({ id, go}) => (
+	<Panel id={id}>
 		<PanelHeader>Разделы</PanelHeader>
 		<Group
 			header={
@@ -24,12 +22,12 @@ const Menu = props => (
 			}
 		>
 			<CardScroll size="m">
-				<Card mode="secondary">
+				<Card className="clickable" mode="secondary" onClick={go} data-to='dota'>
 					<div>
 						<img src={dota} className="Persik" alt="..."></img>
 					</div>
 				</Card>
-				<Card mode="secondary">
+				<Card className="clickable" mode="secondary" onClick={go} data-to='csgo'>
 					<div>
 						<img src={cs} className="Persik" alt="..."></img>
 					</div>
