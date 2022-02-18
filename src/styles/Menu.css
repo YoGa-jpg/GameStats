@@ -1,0 +1,25 @@
+.Persik {
+  display: block;
+  /* width: 30%; */
+  align-self: center;
+  object-fit: cover;
+  max-width: 240px;
+  margin: 20px auto;
+  border-radius: 25%;
+}
+
+.icon {
+  display: block;
+  width: 5%;
+  max-width: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.row{
+  display: inline-block;
+}
